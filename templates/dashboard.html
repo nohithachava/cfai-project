@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<h1>Game Dashboard</h1><p class='sub'>Hello {{session.user}} 👋 Total Points: <b>{{total}}</b></p><div class='cards'>{% for key,g in games.items() %}<a class='card' href='/game/{{key}}'><div class='icon'>{{g.icon}}</div><h3>{{g.name}}</h3><p>{{g.desc}}</p><span>Play Now →</span></a>{% endfor %}</div>{% endblock %}

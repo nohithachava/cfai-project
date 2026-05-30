@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block content %}
+<section class='game-hero'><div><h1>♟️ Real Chess</h1><p>Clear 1 vs 1 chess board. Select a piece, move legally, and win by capturing the king.</p></div><select id='mode'><option>1 vs 1</option><option>Player vs AI</option></select></section>
+<div class='game-shell chess-shell'>
+  <div class='board-wrap'>
+    <div class='files'><span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span></div>
+    <div id='chessBoard' class='chess-board real-chess'></div>
+  </div>
+  <aside class='side-panel'><h2 id='chessStatus'>White turn</h2><p id='chessHint'>Click a white piece to start. Legal moves will glow.</p><button onclick='resetChess()'>Restart</button><button onclick="saveScore('Chess','Completed match',10)">Save Score</button></aside>
+</div>
+{% endblock %}{% block scripts %}<script src='{{ url_for("static", filename="js/chess.js") }}'></script>{% endblock %}

@@ -1,0 +1,3 @@
+let emojis=['♟️','🎲','🧩','🏆','♟️','🎲','🧩','🏆','🚀','💎','🧠','⚡','🚀','💎','🧠','⚡'], open=[], matched=0;
+function startMemory(){matched=0;open=[];emojis.sort(()=>Math.random()-.5);let box=document.getElementById('memory');box.innerHTML='';emojis.forEach((e,i)=>{let d=document.createElement('div');d.className='mcard';d.dataset.e=e;d.textContent='?';d.onclick=()=>flip(d);box.appendChild(d)})}
+function flip(d){if(open.includes(d)||d.textContent!='?')return;d.textContent=d.dataset.e;open.push(d);if(open.length==2){if(open[0].dataset.e==open[1].dataset.e){matched+=2;open=[];if(matched==16){alert('Great memory!');saveScore('Memory Match','Brain Mode','Completed',30)}}else setTimeout(()=>{open.forEach(x=>x.textContent='?');open=[]},650)}}startMemory();

@@ -1,0 +1,7 @@
+let R=6,C=7, grid=[], player='R', done=false; const c4=document.getElementById('c4'), st=document.getElementById('status');
+function resetC4(){grid=Array.from({length:R},()=>Array(C).fill(''));player='R';done=false;st.textContent='Drop a disc';drawC4()}
+function drawC4(){c4.innerHTML=''; for(let r=0;r<R;r++)for(let c=0;c<C;c++){let d=document.createElement('div');d.className='slot '+(grid[r][c]=='R'?'red':grid[r][c]=='Y'?'yellow':'');d.onclick=()=>drop(c);c4.appendChild(d)}}
+function drop(c){if(done)return; for(let r=R-1;r>=0;r--)if(!grid[r][c]){grid[r][c]=player;break} drawC4(); let w=check(); if(w)return finish(w); if(document.getElementById('mode').value==='Player vs AI'&&player==='R'){player='Y';setTimeout(aiDrop,350)} else {player=player==='R'?'Y':'R';st.textContent=(player==='R'?'Red':'Cyan')+' turn'}}
+function aiDrop(){let choices=[];for(let c=0;c<C;c++)if(!grid[0][c])choices.push(c);drop(choices[Math.floor(Math.random()*choices.length)])}
+function check(){let dirs=[[1,0],[0,1],[1,1],[1,-1]];for(let r=0;r<R;r++)for(let c=0;c<C;c++)if(grid[r][c])for(let [dr,dc] of dirs){let n=0;for(let k=0;k<4;k++){let rr=r+dr*k,cc=c+dc*k;if(rr>=0&&rr<R&&cc>=0&&cc<C&&grid[rr][cc]==grid[r][c])n++}if(n==4)return grid[r][c]}return grid.flat().every(x=>x)?'Draw':null}
+function finish(w){done=true;let mode=document.getElementById('mode').value;st.textContent=w==='Draw'?'Draw':(w==='R'?'Red':'Cyan')+' wins';saveScore('Connect Four',mode,st.textContent,w==='R'?25:10)}resetC4();

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block content %}
+<section class='game-hero'><div><h1>🎲 Real Ludo</h1><p>Classic 4-color Ludo board with dice roll, moving tokens and team mode.</p></div><select id='mode'><option>1 vs 1</option><option>Team Mode</option><option>Player vs AI</option></select></section>
+<div class='game-shell ludo-shell'>
+  <div id='ludoBoard' class='ludo-board'></div>
+  <aside class='side-panel'><h2 id='turnText'>Red turn</h2><div class='dice' id='dice'>🎲</div><button onclick='rollDice()'>Roll Dice</button><button onclick='restartLudo()'>Restart</button><p id='ludoMsg'>Roll dice to move your token.</p></aside>
+</div>
+{% endblock %}{% block scripts %}<script src='{{ url_for("static", filename="js/ludo.js") }}'></script>{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block content %}
+<div class='auth auth-pro'>
+  <div class='auth-icon'>🕹️</div>
+  <h2>Create Player Account</h2>
+  <p class='sub'>Register once, then use the same username/password for login.</p>
+  <form method='post'>
+    <label>Username</label>
+    <input name='username' placeholder='Minimum 3 characters' required autocomplete='username'>
+    <label>Password</label>
+    <input name='password' type='password' placeholder='Minimum 4 characters' required autocomplete='new-password'>
+    <button>Register</button>
+  </form>
+  <p>Already registered? <a href='/login'>Login here</a></p>
+</div>
+{% endblock %}

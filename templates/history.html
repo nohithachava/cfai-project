@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<h1>Game History</h1><table><tr><th>Game</th><th>Mode</th><th>Result</th><th>Points</th><th>Date</th></tr>{% for r in rows %}<tr><td>{{r.game}}</td><td>{{r.mode}}</td><td>{{r.result}}</td><td>{{r.points}}</td><td>{{r.created_at}}</td></tr>{% endfor %}</table>{% endblock %}

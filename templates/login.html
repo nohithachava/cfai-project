@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block content %}
+<div class='auth auth-pro'>
+  <div class='auth-icon'>🎮</div>
+  <h2>Login to Arena</h2>
+  <p class='sub'>Enter your registered username and password.</p>
+  <form method='post'>
+    <label>Username</label>
+    <input name='username' placeholder='Example: sampath' required autocomplete='username'>
+    <label>Password</label>
+    <input name='password' type='password' placeholder='Your password' required autocomplete='current-password'>
+    <button>Login</button>
+  </form>
+  <div class='demo-box'>Demo login: <b>demo</b> / <b>demo123</b></div>
+  <p>New player? <a href='/register'>Create account first</a></p>
+</div>
+{% endblock %}
